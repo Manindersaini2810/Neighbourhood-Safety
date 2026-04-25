@@ -265,10 +265,12 @@ function Report(){
 function Dashboard(){
   const [alertCount, setAlertCount] = useState(0);
   const [reportCount, setReportCount] = useState(0);
+  const [stats, setStats] = useState({ activeMembers: 0, safetyScore: 0 });
 
   useEffect(() => {
     fetch("http://localhost:5000/alerts").then(r => r.json()).then(d => setAlertCount(d.length));
     fetch("http://localhost:5000/reports").then(r => r.json()).then(d => setReportCount(d.length));
+    fetch("http://localhost:5000/stats/dashboard").then(r => r.json()).then(d => setStats(d));
   }, []);
 
   return(
@@ -301,14 +303,14 @@ function Dashboard(){
 
           <div className="bg-[#C2D099] rounded-xl p-6 shadow-lg">
             <p className="text-gray-600 text-sm font-medium">Active Members</p>
-            <p className="text-4xl font-bold text-gray-700 mt-2">12</p>
-            <p className="text-gray-500 text-sm mt-1">Online</p>
+            <p className="text-4xl font-bold text-gray-700 mt-2">{stats.activeMembers}</p>
+            <p className="text-gray-500 text-sm mt-1">Residents</p>
           </div>
 
           <div className="bg-[#C2D099] rounded-xl p-6 shadow-lg">
             <p className="text-gray-600 text-sm font-medium">Safety Score</p>
-            <p className="text-4xl font-bold text-gray-700 mt-2">92%</p>
-            <p className="text-gray-500 text-sm mt-1">Excellent</p>
+            <p className="text-4xl font-bold text-gray-700 mt-2">{stats.safetyScore}%</p>
+            <p className="text-gray-500 text-sm mt-1">{stats.safetyScore >= 80 ? "Excellent" : stats.safetyScore >= 60 ? "Good" : "Needs Improvement"}</p>
           </div>
         </div>
 

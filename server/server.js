@@ -5,6 +5,7 @@ const cors = require("cors");
 const alertRoute = require("./routes/alert");
 const reportRoute = require("./routes/report");
 const authRoute = require("./routes/auth");
+const statsRoute = require("./routes/stats");
 
 const app = express();
 
@@ -19,9 +20,10 @@ mongoose.connect("mongodb://127.0.0.1:27017/neighbourhood")
     console.log("MongoDB error:", err);
 });
 
-app.use("/alerts", alertRoute); // add routes
-app.use("/reports", reportRoute); // add routes
-app.use("/auth", authRoute); // auth routes
+app.use("/alerts", alertRoute);
+app.use("/reports", reportRoute);
+app.use("/auth", authRoute);
+app.use("/stats", statsRoute);
 
 app.get("/", (req,res)=>{
     res.send("Backend running");
