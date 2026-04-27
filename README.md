@@ -18,12 +18,6 @@ Neighbourhood-Safety/
 │   ├── package.json
 │   ├── postcss.config.js
 │   ├── tailwind.config.js
-│   ├── public/
-│   │   ├── index.html
-│   │   ├── favicon.ico
-│   │   ├── logo192.png
-│   │   ├── logo512.png
-│   │   └── manifest.json
 │   └── src/
 │       ├── index.js
 │       ├── index.css
