@@ -45,54 +45,54 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "#E6EEC9" }}>
+    <div className="min-h-screen flex items-center justify-center px-4" style={{ backgroundColor: "#F5F5F0" }}>
       <div className="max-w-md w-full">
-        <div className="bg-[#C2D099] rounded-lg shadow-xl p-8">
-          <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-[#35858E] rounded-xl flex items-center justify-center mx-auto mb-4">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        <div className="bg-white rounded-2xl shadow-2xl p-10">
+          <div className="text-center mb-10">
+            <div className="w-20 h-20 bg-[#1E3A5F] rounded-2xl flex items-center justify-center mx-auto mb-5">
+              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
             </div>
-            <h1 className="text-3xl font-extrabold text-[#35858E]">Welcome Back</h1>
-            <p className="text-gray-600 mt-2">Sign in to your account</p>
+            <h1 className="text-4xl font-black text-[#1E3A5F]">WELCOME</h1>
+            <p className="text-gray-500 mt-2 text-lg">Sign in to your account</p>
           </div>
           
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-7">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+              <label className="block text-sm font-bold text-[#1E3A5F] mb-3 uppercase tracking-wide">Email</label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#35858E] focus:border-[#35858E] outline-none transition-all"
+                className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:border-[#1E3A5F] focus:outline-none transition-all text-lg"
                 placeholder="your@email.com"
                 required
               />
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
+              <label className="block text-sm font-bold text-[#1E3A5F] mb-3 uppercase tracking-wide">Password</label>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#35858E] focus:border-[#35858E] outline-none transition-all"
-                placeholder="••••••••"
+                className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:border-[#1E3A5F] focus:outline-none transition-all text-lg"
+                placeholder="Enter your password"
                 required
               />
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Login as</label>
+              <label className="block text-sm font-bold text-[#1E3A5F] mb-3 uppercase tracking-wide">Login as</label>
               <div className="grid grid-cols-2 gap-4">
                 <button
                   type="button"
                   onClick={() => setRole("resident")}
-                  className={`py-3 px-4 rounded-lg font-medium transition-all ${
+                  className={`py-4 px-5 rounded-xl font-bold text-lg transition-all ${
                     role === "resident" 
-                      ? "bg-[#35858E] text-white shadow-md" 
-                      : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-300"
+                      ? "bg-[#2D5A4A] text-white shadow-lg" 
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200 border-2 border-gray-200"
                   }`}
                 >
                   Resident
@@ -100,10 +100,10 @@ function Login() {
                 <button
                   type="button"
                   onClick={() => setRole("admin")}
-                  className={`py-3 px-4 rounded-lg font-medium transition-all ${
+                  className={`py-4 px-5 rounded-xl font-bold text-lg transition-all ${
                     role === "admin" 
-                      ? "bg-[#35858E] text-white shadow-md" 
-                      : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-300"
+                      ? "bg-[#1E3A5F] text-white shadow-lg" 
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200 border-2 border-gray-200"
                   }`}
                 >
                   Admin
@@ -114,26 +114,26 @@ function Login() {
             <button 
               type="submit" 
               disabled={loading}
-              className="w-full py-4 bg-[#35858E] text-white font-bold rounded-lg shadow-md hover:bg-[#2d6e78] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-5 bg-[#1E3A5F] text-white font-bold text-xl rounded-xl shadow-lg hover:bg-[#2a4a73] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? "Signing in..." : "Sign In"}
             </button>
           </form>
           
           {message && (
-            <div className="mt-4 p-4 bg-green-100 text-green-700 rounded-lg text-center">
+            <div className="mt-6 p-4 bg-[#2D5A4A] text-white rounded-xl text-center font-semibold">
               {message}
             </div>
           )}
           {error && (
-            <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg text-center">
+            <div className="mt-6 p-4 bg-[#C9302C] text-white rounded-xl text-center font-semibold">
               {error}
             </div>
           )}
           
-          <p className="mt-8 text-center text-gray-600">
+          <p className="mt-8 text-center text-gray-500 text-lg">
             Don't have an account?{" "}
-            <Link to="/register" className="text-[#35858E] font-medium hover:underline">
+            <Link to="/register" className="text-[#1E3A5F] font-bold hover:underline">
               Create one
             </Link>
           </p>
